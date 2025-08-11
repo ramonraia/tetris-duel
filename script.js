@@ -84,9 +84,7 @@ function createGrid() {
 
 function newBlock() {
     const shapeIndex = Math.floor(Math.random() * shapes.length);
-
     const shape = JSON.parse(JSON.stringify(shapes[shapeIndex]));
-
     const color = colors[shapeIndex];
     currentBlock = {
         shape: shape,
@@ -382,7 +380,7 @@ function checkLineClears() {
         linesSpan.textContent = linesRemaining;
 
         if (linesRemaining <= 0) {
-            endGame(`O controlador de blocos venceu!`);
+            endGame(`The Block Controller wins!`);
             return;
         }
     }
@@ -424,7 +422,7 @@ function solidifyBlock() {
                 if (newY >= 0 && newY < ROWS && newX >= 0 && newX < COLS) {
                     gameGrid[newY][newX] = currentBlock.color;
                 } else {
-                    endGame("Os corredores venceram! O bloco saiu da área.");
+                    endGame("The Runners win! The block went out of bounds.");
                     return;
                 }
             }
@@ -453,7 +451,7 @@ function gameLoop(time = 0) {
             if (checkCrushCollision(currentBlock, 0, 1)) {
                  let activeRunners = characters.filter(c => !c.isEliminated).length;
                  if (activeRunners === 0) {
-                    endGame("O controlador de blocos venceu! Todos os corredores foram esmagados.");
+                    endGame("The Block Controller wins! All runners were crushed.");
                     return;
                  }
             }
@@ -610,7 +608,7 @@ function softDrop() {
         if (checkCrushCollision(currentBlock, 0, 1)) {
             let activeRunners = characters.filter(c => !c.isEliminated).length;
              if (activeRunners === 0) {
-                endGame("O controlador de blocos venceu! Todos os corredores foram esmagados.");
+                endGame("The Block Controller wins! All runners were crushed.");
                 return;
              }
         }
@@ -674,12 +672,12 @@ function eliminateRunner(character) {
     if (statusElement) {
         statusElement.classList.add('bg-red-800');
         statusElement.classList.remove('bg-gray-700');
-        statusElement.innerHTML = `<h4>Corredor ${character.id + 1}</h4><p class="text-red-300">Eliminado!</p>`;
+        statusElement.innerHTML = `<h4>Runner ${character.id + 1}</h4><p class="text-red-300">Eliminated!</p>`;
     }
 
     const activeRunners = characters.filter(c => !c.isEliminated).length;
     if (activeRunners === 0) {
-        endGame("O controlador de blocos venceu! Todos os corredores foram eliminados.");
+        endGame("The Block Controller wins! All runners were eliminated.");
     }
 }
 
@@ -766,7 +764,7 @@ function startCountdown() {
             const timerSpan = timerDisplay.querySelector('span:last-child');
             timerSpan.textContent = formatTime(gameTime);
             if (gameTime <= 0) {
-                endGame("Os corredores venceram! O tempo acabou.");
+                endGame("The Runners win! Time ran out.");
             }
         }
     }, 1000);
@@ -779,8 +777,8 @@ function createRunnerStatusUI() {
         statusDiv.id = `runner-status-${index}`;
         statusDiv.className = 'player-status-item';
         statusDiv.innerHTML = `
-            <h4 style="color:${character.color}">Corredor ${index + 1}</h4>
-            <p>Tiros Restantes: <span id="shots-remaining-${index}">${character.shotsRemaining}</span></p>
+            <h4 style="color:${character.color}">Runner ${index + 1}</h4>
+            <p>Shots Remaining: <span id="shots-remaining-${index}">${character.shotsRemaining}</span></p>
             <div class="shot-recharge-bar mt-1">
                 <div id="recharge-progress-${index}" class="shot-recharge-progress" style="width: 0%;"></div>
             </div>
@@ -850,11 +848,11 @@ window.addEventListener('keydown', e => {
         if (e.key === 'ArrowUp') {
             focusedMenuElementIndex = (focusedMenuElementIndex - 1 + menuOptions.length) % menuOptions.length;
             updateMenuFocus();
-            e.preventDefault();
+            e.preventDefault(); // Added to prevent default browser behavior
         } else if (e.key === 'ArrowDown') {
             focusedMenuElementIndex = (focusedMenuElementIndex + 1) % menuOptions.length;
             updateMenuFocus();
-            e.preventDefault();
+            e.preventDefault(); // Added to prevent default browser behavior
         } else if (e.key === 'Enter') {
             const focusedElement = menuOptions[focusedMenuElementIndex];
             if (focusedElement.tagName === 'BUTTON') {
