@@ -197,6 +197,16 @@
             text-align: center;
             z-index: 102;
         }
+        .controls-panel-text {
+            background-color: #4a5568;
+            padding: 0.75rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-top: 1rem;
+        }
+        .controls-list li {
+            margin-bottom: 0.5rem;
+        }
 
         /* Mobile styles */
         @media (max-width: 768px) {
@@ -217,16 +227,19 @@
                 width: 95%;
                 order: 2; /* Main canvas is in the middle */
             }
-            .controls-panel {
+            .controls-panel-buttons {
                 width: 90%;
                 order: 3; /* Controls are at the bottom on mobile */
                 flex-direction: row;
                 justify-content: space-between;
                 flex-wrap: wrap;
             }
-            .controls-panel button {
+            .controls-panel-buttons button {
                 width: 48%; /* Adjust button size for mobile */
                 margin-bottom: 0.5rem;
+            }
+            .controls-panel-text {
+                display: none; /* Hide text controls on mobile to save space */
             }
         }
     </style>
@@ -294,10 +307,21 @@
                 <div id="runnerStatusContainer" class="flex flex-col gap-2">
                     <!-- Runner status will be dynamically inserted here -->
                 </div>
+                <!-- New Controls Section -->
+                <div class="controls-panel-text mt-4">
+                    <h4 class="text-white font-bold mb-2">Controls</h4>
+                    <ul class="controls-list text-gray-300 text-sm">
+                        <li><span class="font-bold">Arrow Left</span>: Move Left</li>
+                        <li><span class="font-bold">Arrow Right</span>: Move Right</li>
+                        <li><span class="font-bold">Arrow Down</span>: Soft Drop</li>
+                        <li><span class="font-bold">Arrow Up</span>: Rotate</li>
+                        <li><span class="font-bold">P / ESC</span>: Pause Game</li>
+                    </ul>
+                </div>
             </div>
             <canvas id="gameCanvas"></canvas>
-            <!-- New controls panel -->
-            <div class="controls-panel flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
+            <!-- On-screen control buttons -->
+            <div class="controls-panel-buttons flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
                 <button id="rotateButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
                     <i class="fas fa-undo-alt fa-2x"></i>
                 </button>
