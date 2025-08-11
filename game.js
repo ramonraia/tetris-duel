@@ -1,6 +1,6 @@
 // A complete, self-contained game.js file for Tetris Duel.
 // This script handles all game logic, including the menu, game loop,
-// scoring, block movement, line clearing, and runner/shot mechanics.
+// scoring, block movement, line clearing, runner/shot mechanics, and now, on-screen controls.
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Global Game State and Constants ---
@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const startGameButton = document.getElementById('startGameButton');
     const resumeButton = document.getElementById('resumeButton');
     const backToMenuButton = document.getElementById('backToMenuButton');
+
+    // On-screen control buttons
+    const leftButton = document.getElementById('leftButton');
+    const rightButton = document.getElementById('rightButton');
+    const rotateButton = document.getElementById('rotateButton');
+    const downButton = document.getElementById('downButton');
+    const pauseButton = document.getElementById('pauseButton');
 
     // UI options
     const runnerCountSelect = document.getElementById('runnerCountSelect');
@@ -483,13 +490,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resumeButton.addEventListener('click', resumeGame);
-
     backToMenuButton.addEventListener('click', () => {
         clearInterval(timerInterval);
         runners.forEach(r => clearInterval(r.rechargeInterval));
         mainContainer.style.display = 'none';
         pauseScreen.style.display = 'none';
         menuScreen.style.display = 'flex';
+    });
+
+    // On-screen control button event listeners
+    leftButton.addEventListener('click', () => {
+        if (!isPaused && !gameOver) {
+            if (!collide(currentPiece, -1, 0)) currentPiece.x--;
+            draw();
+        }
+    });
+
+    rightButton.addEventListener('click', () => {
+        if (!isPaused && !gameOver) {
+            if (!collide(currentPiece, 1, 0)) currentPiece.x++;
+            draw();
+        }
+    });
+
+    rotateButton.addEventListener('click', () => {
+        if (!isPaused && !gameOver) {
+            rotate(currentPiece);
+            draw();
+        }
+    });
+
+    downButton.addEventListener('click', () => {
+        if (!isPaused && !gameOver) {
+            drop();
+            draw();
+        }
+    });
+    
+    // The pause button on the screen now works too
+    pauseButton.addEventListener('click', () => {
+        pauseGame();
     });
 
     // Initial draw to show the empty board
