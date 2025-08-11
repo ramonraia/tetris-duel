@@ -221,25 +221,26 @@
             }
             .info-panel {
                 width: 90%;
-                order: 1; /* Move info panel to the top on mobile */
+                order: 1;
             }
             canvas {
                 width: 95%;
-                order: 2; /* Main canvas is in the middle */
+                order: 2;
+            }
+            .controls-panel-text {
+                display: none;
             }
             .controls-panel-buttons {
                 width: 90%;
-                order: 3; /* Controls are at the bottom on mobile */
+                order: 3;
                 flex-direction: row;
                 justify-content: space-between;
                 flex-wrap: wrap;
+                margin-top: 1rem;
             }
             .controls-panel-buttons button {
-                width: 48%; /* Adjust button size for mobile */
+                width: 48%;
                 margin-bottom: 0.5rem;
-            }
-            .controls-panel-text {
-                display: none; /* Hide text controls on mobile to save space */
             }
         }
     </style>
@@ -311,17 +312,18 @@
                 <div class="controls-panel-text mt-4">
                     <h4 class="text-white font-bold mb-2">Controls</h4>
                     <ul class="controls-list text-gray-300 text-sm">
-                        <li><span class="font-bold">Arrow Left</span>: Move Left</li>
-                        <li><span class="font-bold">Arrow Right</span>: Move Right</li>
-                        <li><span class="font-bold">Arrow Down</span>: Soft Drop</li>
-                        <li><span class="font-bold">Arrow Up</span>: Rotate</li>
+                        <li><span class="font-bold">A</span>: Move Left</li>
+                        <li><span class="font-bold">D</span>: Move Right</li>
+                        <li><span class="font-bold">S</span>: Soft Drop</li>
+                        <li><span class="font-bold">W</span>: Rotate</li>
+                        <li><span class="font-bold">Q</span>: Shoot</li>
                         <li><span class="font-bold">P / ESC</span>: Pause Game</li>
                     </ul>
                 </div>
             </div>
             <canvas id="gameCanvas"></canvas>
-            <!-- On-screen control buttons -->
-            <div class="controls-panel-buttons flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
+            <!-- On-screen control buttons for mobile -->
+            <div class="controls-panel-buttons hidden md:flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
                 <button id="rotateButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
                     <i class="fas fa-undo-alt fa-2x"></i>
                 </button>
