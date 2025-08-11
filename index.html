@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Duel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Main game container -->
+    <div class="main-container">
+        <!-- Game Information Panel -->
+        <div class="side-panel">
+            <h3>Game Information</h3>
+            <div id="playerScoreDisplay" class="player-info">
+                <span>Block Controller Score:</span>
+                <span>0</span>
+            </div>
+            <div id="linesRemainingDisplay" class="player-info">
+                <span>Lines Remaining:</span>
+                <span>5</span>
+            </div>
+            <div id="timerDisplay" class="player-info">
+                <span>Time:</span>
+                <span>05:00</span>
+            </div>
+            <div id="runnerStatusContainer" class="player-status-container mt-4">
+                <!-- Runner status will be injected here -->
+            </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div class="game-container">
+            <h1 class="game-title">Tetris Duel</h1>
+            <canvas id="gameCanvas" width="300" height="600"></canvas>
+        </div>
+
+        <!-- Instructions Panel -->
+        <div class="side-panel instructions">
+            <h3>Instructions</h3>
+            <div class="player-controls">
+                <h4>Player 1 (Block Controller)</h4>
+                <p>A/D to move.</p>
+                <p>W to rotate.</p>
+                <p>S for soft drop.</p>
+            </div>
+            <div class="player-controls mt-4">
+                <h4>Player 2 (Runner 1)</h4>
+                <p>Left/Right Arrow to move.</p>
+                <p>Up Arrow to jump.</p>
+                <p>Down Arrow to shoot.</p>
+            </div>
+            <div class="player-controls mt-4">
+                <h4>Player 3 (Runner 2)</h4>
+                <p>F/H to move.</p>
+                <p>T to jump.</p>
+                <p>G to shoot.</p>
+            </div>
+            <div class="player-controls mt-4">
+                <h4>Player 4 (Runner 3)</h4>
+                <p>J/L to move.</p>
+                <p>I to jump.</p>
+                <p>K to shoot.</p>
+            </div>
+            <p class="mt-4 text-sm text-yellow-300">Press 'P' to pause/unpause.</p>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="menuScreen" class="menu">
+        <h2 class="text-2xl font-bold">Game Setup</h2>
+        <p class="text-sm text-gray-400">by: ramonraia</p>
+        <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between gap-4">
+                <label for="runnerCountSelect">Number of Runners:</label>
+                <select id="runnerCountSelect" class="text-black menu-option">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <label for="linesInput">Lines to Win:</label>
+                <input type="number" id="linesInput" value="5" min="1" class="text-black menu-option">
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <label for="maxShotsInput">Max Shots per Runner:</label>
+                <input type="number" id="maxShotsInput" value="7" min="1" class="text-black menu-option">
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <label for="rechargeTimeInput">Recharge Time (seconds):</label>
+                <input type="number" id="rechargeTimeInput" value="30" min="1" class="text-black menu-option">
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <label for="speedSelect">Drop Speed:</label>
+                <select id="speedSelect" class="text-black menu-option">
+                    <option value="slow">Slow</option>
+                    <option value="medium">Medium</option>
+                    <option value="fast">Fast</option>
+                    <option value="very-fast">Very Fast</option>
+                </select>
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <label for="timeInput">Game Time (minutes):</label>
+                <input type="number" id="timeInput" value="5" min="1" class="text-black menu-option">
+            </div>
+        </div>
+        <button id="startGameButton" class="menu-option">Start Game</button>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pauseScreen" class="pause-menu menu">
+        <h2 class="text-2xl font-bold">Game Paused</h2>
+        <button id="resumeButton" class="pause-menu-option">Resume</button>
+        <button id="backToMenuButton" class="pause-menu-option">Back to Menu</button>
+    </div>
+
+    <div id="gameMessage" class="game-message"></div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="game.js"></script>
+</body>
+</html>
