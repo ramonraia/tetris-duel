@@ -211,9 +211,22 @@
             }
             .info-panel {
                 width: 90%;
+                order: 1; /* Move info panel to the top on mobile */
             }
             canvas {
                 width: 95%;
+                order: 2; /* Main canvas is in the middle */
+            }
+            .controls-panel {
+                width: 90%;
+                order: 3; /* Controls are at the bottom on mobile */
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .controls-panel button {
+                width: 48%; /* Adjust button size for mobile */
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -283,6 +296,26 @@
                 </div>
             </div>
             <canvas id="gameCanvas"></canvas>
+            <!-- New controls panel -->
+            <div class="controls-panel flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
+                <button id="rotateButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
+                    <i class="fas fa-undo-alt fa-2x"></i>
+                </button>
+                <div class="flex gap-2">
+                    <button id="leftButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-arrow-left fa-2x"></i>
+                    </button>
+                    <button id="rightButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                    </button>
+                </div>
+                <button id="downButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
+                    <i class="fas fa-arrow-down fa-2x"></i>
+                </button>
+                <button id="pauseButton" class="bg-red-500 text-white p-4 rounded-full shadow-md hover:bg-red-600 transition-colors mt-4">
+                    <i class="fas fa-pause fa-2x"></i>
+                </button>
+            </div>
         </div>
     </div>
 
