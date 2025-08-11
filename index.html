@@ -221,26 +221,25 @@
             }
             .info-panel {
                 width: 90%;
-                order: 1;
+                order: 1; /* Move info panel to the top on mobile */
             }
             canvas {
                 width: 95%;
-                order: 2;
+                order: 2; /* Main canvas is in the middle */
             }
             .controls-panel-buttons {
                 width: 90%;
-                order: 3;
+                order: 3; /* Controls are at the bottom on mobile */
                 flex-direction: row;
                 justify-content: space-between;
                 flex-wrap: wrap;
-                margin-top: 1rem;
             }
             .controls-panel-buttons button {
-                width: 48%;
+                width: 48%; /* Adjust button size for mobile */
                 margin-bottom: 0.5rem;
             }
             .controls-panel-text {
-                display: none;
+                display: none; /* Hide text controls on mobile to save space */
             }
         }
     </style>
@@ -255,7 +254,7 @@
             <select id="runnerCountSelect" class="menu-option">
                 <option value="1">1 Runner</option>
                 <option value="2">2 Runners</option>
-                <option value="3" selected>3 Runners</option>
+                <option value="3">3 Runners</option>
             </select>
         </div>
         <div class="menu-group">
@@ -321,8 +320,8 @@
                 </div>
             </div>
             <canvas id="gameCanvas"></canvas>
-            <!-- On-screen control buttons for mobile -->
-            <div class="controls-panel-buttons hidden md:flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
+            <!-- On-screen control buttons -->
+            <div class="controls-panel-buttons flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
                 <button id="rotateButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
                     <i class="fas fa-undo-alt fa-2x"></i>
                 </button>
