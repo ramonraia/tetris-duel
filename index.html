@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetris Crush Duel</title>
+    <title>Tetris Duel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -94,7 +94,7 @@
             transition: width 1s linear;
         }
         #menuScreen {
-            display: flex; /* Alterado de 'none' para 'flex' */
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -220,11 +220,11 @@
 </head>
 <body class="bg-gray-900 text-gray-100 flex flex-col items-center justify-center min-h-screen">
 
-    <!-- Tela do Menu -->
+    <!-- Menu Screen -->
     <div id="menuScreen" class="flex flex-col items-center justify-center p-8 bg-gray-900 rounded-lg shadow-xl">
-        <h1 class="menu-title">Tetris Crush Duel</h1>
+        <h1 class="menu-title">Tetris Duel</h1>
         <div class="menu-group">
-            <label for="runnerCountSelect" class="text-gray-300 font-semibold">Número de Runners</label>
+            <label for="runnerCountSelect" class="text-gray-300 font-semibold">Number of Runners</label>
             <select id="runnerCountSelect" class="menu-option">
                 <option value="1">1 Runner</option>
                 <option value="2">2 Runners</option>
@@ -232,51 +232,52 @@
             </select>
         </div>
         <div class="menu-group">
-            <label for="linesInput" class="text-gray-300 font-semibold">Linhas para o Runner vencer</label>
+            <label for="linesInput" class="text-gray-300 font-semibold">Lines for Runner to Win</label>
             <input type="number" id="linesInput" class="menu-option" value="5" min="1" max="99">
         </div>
         <div class="menu-group">
-            <label for="maxShotsInput" class="text-gray-300 font-semibold">Máximo de Tiros por Runner</label>
+            <label for="maxShotsInput" class="text-gray-300 font-semibold">Max Shots per Runner</label>
             <input type="number" id="maxShotsInput" class="menu-option" value="7" min="1" max="99">
         </div>
         <div class="menu-group">
-            <label for="rechargeTimeInput" class="text-gray-300 font-semibold">Tempo de Recarga de Tiros (s)</label>
+            <label for="rechargeTimeInput" class="text-gray-300 font-semibold">Shot Recharge Time (s)</label>
             <input type="number" id="rechargeTimeInput" class="menu-option" value="30" min="1" max="999">
         </div>
         <div class="menu-group">
-            <label for="speedSelect" class="text-gray-300 font-semibold">Dificuldade do Bloco</label>
+            <label for="speedSelect" class="text-gray-300 font-semibold">Block Difficulty</label>
             <select id="speedSelect" class="menu-option">
-                <option value="slow">Lenta</option>
-                <option value="medium">Média</option>
-                <option value="fast">Rápida</option>
-                <option value="very-fast">Muito Rápida</option>
+                <option value="slow">Slow</option>
+                <option value="medium">Medium</option>
+                <option value="fast" selected>Fast</option>
+                <option value="very-fast">Very Fast</option>
+                <option value="insane">Insane</option>
             </select>
         </div>
         <div class="menu-group">
-            <label for="timeInput" class="text-gray-300 font-semibold">Tempo de Jogo (min)</label>
-            <input type="number" id="timeInput" class="menu-option" value="5" min="1" max="99">
+            <label for="timeInput" class="text-gray-300 font-semibold">Game Time (min)</label>
+            <input type="number" id="timeInput" class="menu-option" value="3" min="1" max="99">
         </div>
-        <button id="startGameButton" class="menu-option mt-4">Iniciar Jogo</button>
+        <button id="startGameButton" class="menu-option mt-4">Start Game</button>
     </div>
 
-    <!-- Tela do Jogo -->
+    <!-- Game Screen -->
     <div class="main-container">
         <div class="game-area">
             <div class="info-panel">
-                <h3 class="text-xl font-bold text-yellow-400">Placar</h3>
+                <h3 class="text-xl font-bold text-yellow-400">Scoreboard</h3>
                 <div class="stats-item">
-                    <p>Pontuação:</p>
+                    <p>Score:</p>
                     <span id="playerScoreDisplay"><span>0</span></span>
                 </div>
                 <div class="stats-item">
-                    <p>Linhas para Vencer:</p>
+                    <p>Lines to Win:</p>
                     <span id="linesRemainingDisplay"><span>5</span></span>
                 </div>
                 <div class="stats-item">
-                    <p>Tempo Restante:</p>
-                    <span id="timerDisplay"><span>05:00</span></span>
+                    <p>Time Remaining:</p>
+                    <span id="timerDisplay"><span>03:00</span></span>
                 </div>
-                <h3 class="text-xl font-bold text-purple-400 mt-4">Status dos Runners</h3>
+                <h3 class="text-xl font-bold text-purple-400 mt-4">Runner Status</h3>
                 <div id="runnerStatusContainer" class="flex flex-col gap-2">
                     <!-- Runner status will be dynamically inserted here -->
                 </div>
@@ -285,14 +286,14 @@
         </div>
     </div>
 
-    <!-- Tela de Pausa -->
+    <!-- Pause Screen -->
     <div id="pauseScreen">
-        <h2 class="text-3xl font-bold text-white mb-8">Jogo Pausado</h2>
-        <button id="resumeButton" class="pause-menu-option">Continuar</button>
-        <button id="backToMenuButton" class="pause-menu-option">Voltar ao Menu</button>
+        <h2 class="text-3xl font-bold text-white mb-8">Game Paused</h2>
+        <button id="resumeButton" class="pause-menu-option">Resume</button>
+        <button id="backToMenuButton" class="pause-menu-option">Back to Menu</button>
     </div>
 
-    <!-- Mensagem de Fim de Jogo -->
+    <!-- Game Message -->
     <div id="gameMessage"></div>
 
     <script src="game.js"></script>
