@@ -16,7 +16,7 @@ body {
 .main-container {
     display: none;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Aligns items to the top */
     flex-wrap: wrap;
     gap: 2rem;
     max-width: 1200px;
@@ -102,12 +102,13 @@ canvas {
     background-color: #6b7280;
     border-radius: 9999px;
     overflow: hidden;
+    margin-top: 4px;
 }
 
 .shot-recharge-progress {
     height: 100%;
     background-color: #22c55e;
-    transition: width 0.5s;
+    transition: width 0.1s linear;
 }
 
 .instructions {
@@ -136,17 +137,19 @@ canvas {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
     color: white;
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Adjusted font size */
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
     z-index: 10;
+    min-width: 300px;
 }
 
 /* Style for the focused menu item */
@@ -166,10 +169,12 @@ canvas {
     text-align: center;
     width: 100%;
 }
+
 .menu input {
     width: 80px;
 }
-.menu button, .pause-menu button {
+
+.menu button, .pause-menu button, .game-message button {
     background-color: #3b82f6;
     color: white;
     padding: 0.75rem 1.5rem;
@@ -178,8 +183,11 @@ canvas {
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s;
+    border: none;
+    margin-top: 0.5rem;
 }
-.menu button:hover, .pause-menu button:hover {
+
+.menu button:hover, .pause-menu button:hover, .game-message button:hover {
     background-color: #2563eb;
 }
 
