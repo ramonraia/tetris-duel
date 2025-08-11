@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -247,11 +247,11 @@
 </head>
 <body class="bg-gray-900 text-gray-100 flex flex-col items-center justify-center min-h-screen">
 
-    <!-- Menu Screen -->
+    <!-- Tela do Menu -->
     <div id="menuScreen" class="flex flex-col items-center justify-center p-8 bg-gray-900 rounded-lg shadow-xl">
         <h1 class="menu-title">Tetris Duel</h1>
         <div class="menu-group">
-            <label for="runnerCountSelect" class="text-gray-300 font-semibold">Number of Runners</label>
+            <label for="runnerCountSelect" class="text-gray-300 font-semibold">Número de Runners</label>
             <select id="runnerCountSelect" class="menu-option">
                 <option value="1">1 Runner</option>
                 <option value="2">2 Runners</option>
@@ -259,69 +259,69 @@
             </select>
         </div>
         <div class="menu-group">
-            <label for="linesInput" class="text-gray-300 font-semibold">Lines for Runner to Win</label>
+            <label for="linesInput" class="text-gray-300 font-semibold">Linhas para o Runner Vencer</label>
             <input type="number" id="linesInput" class="menu-option" value="5" min="1" max="99">
         </div>
         <div class="menu-group">
-            <label for="maxShotsInput" class="text-gray-300 font-semibold">Max Shots per Runner</label>
+            <label for="maxShotsInput" class="text-gray-300 font-semibold">Tiros Máximos por Runner</label>
             <input type="number" id="maxShotsInput" class="menu-option" value="7" min="1" max="99">
         </div>
         <div class="menu-group">
-            <label for="rechargeTimeInput" class="text-gray-300 font-semibold">Shot Recharge Time (s)</label>
+            <label for="rechargeTimeInput" class="text-gray-300 font-semibold">Tempo de Recarga de Tiro (s)</label>
             <input type="number" id="rechargeTimeInput" class="menu-option" value="30" min="1" max="999">
         </div>
         <div class="menu-group">
-            <label for="speedSelect" class="text-gray-300 font-semibold">Block Difficulty</label>
+            <label for="speedSelect" class="text-gray-300 font-semibold">Dificuldade do Bloco</label>
             <select id="speedSelect" class="menu-option">
-                <option value="slow">Slow</option>
-                <option value="medium">Medium</option>
-                <option value="fast" selected>Fast</option>
-                <option value="very-fast">Very Fast</option>
-                <option value="insane">Insane</option>
+                <option value="slow">Lento</option>
+                <option value="medium">Médio</option>
+                <option value="fast" selected>Rápido</option>
+                <option value="very-fast">Muito Rápido</option>
+                <option value="insane">Insano</option>
             </select>
         </div>
         <div class="menu-group">
-            <label for="timeInput" class="text-gray-300 font-semibold">Game Time (min)</label>
+            <label for="timeInput" class="text-gray-300 font-semibold">Tempo de Jogo (min)</label>
             <input type="number" id="timeInput" class="menu-option" value="3" min="1" max="99">
         </div>
-        <button id="startGameButton" class="menu-option mt-4">Start Game</button>
+        <button id="startGameButton" class="menu-option mt-4">Iniciar Jogo</button>
     </div>
 
-    <!-- Game Screen -->
+    <!-- Tela do Jogo -->
     <div class="main-container">
         <div class="game-area">
             <div class="info-panel">
-                <h3 class="text-xl font-bold text-yellow-400">Scoreboard</h3>
+                <h3 class="text-xl font-bold text-yellow-400">Placar</h3>
                 <div class="stats-item">
-                    <p>Score:</p>
+                    <p>Pontuação:</p>
                     <span id="playerScoreDisplay"><span>0</span></span>
                 </div>
                 <div class="stats-item">
-                    <p>Lines to Win:</p>
+                    <p>Linhas para Vencer:</p>
                     <span id="linesRemainingDisplay"><span>5</span></span>
                 </div>
                 <div class="stats-item">
-                    <p>Time Remaining:</p>
+                    <p>Tempo Restante:</p>
                     <span id="timerDisplay"><span>03:00</span></span>
                 </div>
-                <h3 class="text-xl font-bold text-purple-400 mt-4">Runner Status</h3>
+                <h3 class="text-xl font-bold text-purple-400 mt-4">Status dos Runners</h3>
                 <div id="runnerStatusContainer" class="flex flex-col gap-2">
-                    <!-- Runner status will be dynamically inserted here -->
+                    <!-- O status dos runners será inserido dinamicamente aqui -->
                 </div>
-                <!-- New Controls Section -->
+                <!-- Nova Seção de Controles -->
                 <div class="controls-panel-text mt-4">
-                    <h4 class="text-white font-bold mb-2">Controls</h4>
+                    <h4 class="text-white font-bold mb-2">Controles</h4>
                     <ul class="controls-list text-gray-300 text-sm">
-                        <li><span class="font-bold">Arrow Left</span>: Move Left</li>
-                        <li><span class="font-bold">Arrow Right</span>: Move Right</li>
-                        <li><span class="font-bold">Arrow Down</span>: Soft Drop</li>
-                        <li><span class="font-bold">Arrow Up</span>: Rotate</li>
-                        <li><span class="font-bold">P / ESC</span>: Pause Game</li>
+                        <li><span class="font-bold">Seta Esquerda</span>: Mover para Esquerda</li>
+                        <li><span class="font-bold">Seta Direita</span>: Mover para Direita</li>
+                        <li><span class="font-bold">Seta Baixo</span>: Queda Suave</li>
+                        <li><span class="font-bold">Seta Cima</span>: Girar</li>
+                        <li><span class="font-bold">P / ESC</span>: Pausar Jogo</li>
                     </ul>
                 </div>
             </div>
             <canvas id="gameCanvas"></canvas>
-            <!-- On-screen control buttons for mobile -->
+            <!-- Botões de controle na tela para dispositivos móveis -->
             <div class="controls-panel-buttons hidden md:flex flex-col items-center justify-center gap-2 p-4 bg-gray-800 rounded-xl shadow-lg">
                 <button id="rotateButton" class="bg-gray-700 text-white p-4 rounded-full shadow-md hover:bg-gray-600 transition-colors">
                     <i class="fas fa-undo-alt fa-2x"></i>
@@ -344,17 +344,552 @@
         </div>
     </div>
 
-    <!-- Pause Screen -->
+    <!-- Tela de Pausa -->
     <div id="pauseScreen">
-        <h2 class="text-3xl font-bold text-white mb-8">Game Paused</h2>
-        <button id="resumeButton" class="pause-menu-option">Resume</button>
-        <button id="backToMenuButton" class="pause-menu-option">Back to Menu</button>
+        <h2 class="text-3xl font-bold text-white mb-8">Jogo Pausado</h2>
+        <button id="resumeButton" class="pause-menu-option">Continuar</button>
+        <button id="backToMenuButton" class="pause-menu-option">Voltar para o Menu</button>
     </div>
 
-    <!-- Game Message -->
+    <!-- Mensagem do Jogo -->
     <div id="gameMessage"></div>
 
-    <script src="game.js"></script>
+    <script>
+    // Script completo do jogo, incluindo a lógica do menu, loop do jogo,
+    // pontuação, movimento dos blocos, limpeza de linhas, mecânica de runners/tiros
+    // e controles na tela.
 
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Estado Global do Jogo e Constantes ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const GRID_SIZE = 30; // Tamanho de cada célula em pixels
+        const COLS = 10;
+        const ROWS = 20;
+
+        canvas.width = COLS * GRID_SIZE;
+        canvas.height = ROWS * GRID_SIZE;
+
+        // Elementos da UI
+        const menuScreen = document.getElementById('menuScreen');
+        const mainContainer = document.querySelector('.main-container');
+        const pauseScreen = document.getElementById('pauseScreen');
+        const gameMessage = document.getElementById('gameMessage');
+
+        const startGameButton = document.getElementById('startGameButton');
+        const resumeButton = document.getElementById('resumeButton');
+        const backToMenuButton = document.getElementById('backToMenuButton');
+
+        // Botões de controle na tela
+        const leftButton = document.getElementById('leftButton');
+        const rightButton = document.getElementById('rightButton');
+        const rotateButton = document.getElementById('rotateButton');
+        const downButton = document.getElementById('downButton');
+        const pauseButton = document.getElementById('pauseButton');
+
+        // Opções do menu
+        const runnerCountSelect = document.getElementById('runnerCountSelect');
+        const linesInput = document.getElementById('linesInput');
+        const maxShotsInput = document.getElementById('maxShotsInput');
+        const rechargeTimeInput = document.getElementById('rechargeTimeInput');
+        const speedSelect = document.getElementById('speedSelect');
+        const timeInput = document.getElementById('timeInput');
+
+        // Exibição de estatísticas do jogo
+        const playerScoreDisplay = document.getElementById('playerScoreDisplay');
+        const linesRemainingDisplay = document.getElementById('linesRemainingDisplay');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const runnerStatusContainer = document.getElementById('runnerStatusContainer');
+
+        // Variáveis do jogo
+        let board = [];
+        let currentPiece;
+        let nextPiece;
+        let gameLoopId;
+        let isPaused = false;
+        let gameOver = false;
+        let score = 0;
+        let linesToWin;
+        let totalGameTime; // em segundos
+        let timeLeft; // em segundos
+        let timerInterval;
+
+        // Velocidades em milissegundos.
+        const SPEEDS = {
+            'slow': 1000,
+            'medium': 500,
+            'fast': 200,
+            'very-fast': 100,
+            'insane': 50
+        };
+        let dropInterval;
+
+        // Variáveis dos runners
+        let runners = [];
+        let maxShots;
+        let shotRechargeTime; // em segundos
+
+        // --- Definições das Peças ---
+        const PIECES = {
+            'I': [
+                [0, 0, 0, 0],
+                [1, 1, 1, 1],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]
+            ],
+            'J': [
+                [1, 0, 0],
+                [1, 1, 1],
+                [0, 0, 0]
+            ],
+            'L': [
+                [0, 0, 1],
+                [1, 1, 1],
+                [0, 0, 0]
+            ],
+            'O': [
+                [1, 1],
+                [1, 1]
+            ],
+            'S': [
+                [0, 1, 1],
+                [1, 1, 0],
+                [0, 0, 0]
+            ],
+            'T': [
+                [0, 1, 0],
+                [1, 1, 1],
+                [0, 0, 0]
+            ],
+            'Z': [
+                [1, 1, 0],
+                [0, 1, 1],
+                [0, 0, 0]
+            ]
+        };
+        const COLORS = {
+            'I': 'cyan',
+            'J': 'blue',
+            'L': 'orange',
+            'O': 'yellow',
+            'S': 'green',
+            'T': 'purple',
+            'Z': 'red'
+        };
+
+        // --- Funções de Lógica do Jogo ---
+
+        // Inicializa o tabuleiro do jogo
+        function createBoard() {
+            board = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
+        }
+
+        // Pega uma nova peça aleatória
+        function getNewPiece() {
+            const keys = Object.keys(PIECES);
+            const randomKey = keys[Math.floor(Math.random() * keys.length)];
+            return {
+                shape: PIECES[randomKey],
+                color: COLORS[randomKey],
+                x: Math.floor(COLS / 2) - Math.floor(PIECES[randomKey][0].length / 2),
+                y: 0
+            };
+        }
+
+        // Verifica colisões
+        function collide(piece, dx, dy, rotatedShape) {
+            const shape = rotatedShape || piece.shape;
+            for (let y = 0; y < shape.length; y++) {
+                for (let x = 0; x < shape[y].length; x++) {
+                    if (shape[y][x]) {
+                        const newX = piece.x + x + dx;
+                        const newY = piece.y + y + dy;
+                        if (newX < 0 || newX >= COLS || newY >= ROWS || (newY >= 0 && board[newY][newX])) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Mescla a peça no tabuleiro
+        function merge(piece) {
+            for (let y = 0; y < piece.shape.length; y++) {
+                for (let x = 0; x < piece.shape[y].length; x++) {
+                    if (piece.shape[y][x]) {
+                        board[piece.y + y][piece.x + x] = piece.color;
+                    }
+                }
+            }
+        }
+
+        // Limpa linhas completas
+        function clearLines() {
+            let linesCleared = 0;
+            for (let y = ROWS - 1; y >= 0; y--) {
+                if (board[y].every(cell => cell !== 0)) {
+                    board.splice(y, 1);
+                    board.unshift(Array(COLS).fill(0));
+                    linesCleared++;
+                    y++; // Verifica a mesma linha novamente
+                }
+            }
+            if (linesCleared > 0) {
+                score += linesCleared * 100;
+                playerScoreDisplay.textContent = score;
+                linesToWin -= linesCleared;
+                linesRemainingDisplay.textContent = linesToWin > 0 ? linesToWin : 0;
+                checkWinCondition();
+            }
+        }
+
+        // Gira a peça atual
+        function rotate(piece) {
+            const newShape = piece.shape[0].map((_, colIndex) => piece.shape.map(row => row[colIndex]).reverse());
+            if (!collide(piece, 0, 0, newShape)) {
+                piece.shape = newShape;
+            }
+        }
+
+        // Solta a peça
+        function drop() {
+            if (!collide(currentPiece, 0, 1)) {
+                currentPiece.y++;
+            } else {
+                merge(currentPiece);
+                clearLines();
+                currentPiece = nextPiece;
+                nextPiece = getNewPiece();
+                if (collide(currentPiece, 0, 0)) {
+                    endGame();
+                }
+            }
+        }
+
+        // --- Lógica de Runner AI e Tiro ---
+
+        // Classe Runner
+        class Runner {
+            constructor(id, linesNeeded) {
+                this.id = id;
+                this.linesNeeded = linesNeeded;
+                this.shotsRemaining = maxShots;
+                this.rechargeTimer = shotRechargeTime;
+                this.rechargeInterval = null;
+            }
+
+            // Simula o jogo de um runner e verifica a vitória
+            update() {
+                if (this.linesNeeded <= 0) {
+                    return true; // Runner venceu
+                }
+                if (Math.random() < 0.01 && this.shotsRemaining > 0) {
+                    this.fireShot();
+                }
+                return false;
+            }
+
+            // Dispara um tiro, adicionando uma linha de lixo ao tabuleiro do jogador
+            fireShot() {
+                if (this.shotsRemaining > 0) {
+                    this.shotsRemaining--;
+                    const garbageLine = Array(COLS).fill(COLORS['T']).map((color, index) => {
+                        return index === Math.floor(Math.random() * COLS) ? 0 : color;
+                    });
+                    board.unshift(garbageLine);
+                    this.rechargeTimer = shotRechargeTime;
+                    this.startRecharge();
+                    updateRunnerStatus();
+                }
+            }
+
+            // Inicia o temporizador de recarga de tiro
+            startRecharge() {
+                if (this.rechargeInterval) clearInterval(this.rechargeInterval);
+                this.rechargeInterval = setInterval(() => {
+                    if (!isPaused && this.shotsRemaining < maxShots) {
+                        this.rechargeTimer--;
+                        if (this.rechargeTimer <= 0) {
+                            this.shotsRemaining++;
+                            this.rechargeTimer = shotRechargeTime;
+                        }
+                        updateRunnerStatus();
+                    }
+                }, 1000);
+            }
+        }
+
+        // Atualiza o painel de status do runner
+        function updateRunnerStatus() {
+            runnerStatusContainer.innerHTML = '';
+            runners.forEach(runner => {
+                const statusDiv = document.createElement('div');
+                statusDiv.className = 'player-status-item';
+                statusDiv.innerHTML = `
+                    <h4 class="text-white">Runner ${runner.id}</h4>
+                    <p>Linhas para Vencer: ${runner.linesNeeded > 0 ? runner.linesNeeded : 0}</p>
+                    <p>Tiros Restantes: ${runner.shotsRemaining}</p>
+                    <p>Tempo de Recarga: <span id="rechargeTimer-${runner.id}">${runner.rechargeTimer}</span>s</p>
+                    <div class="shot-recharge-bar">
+                        <div class="shot-recharge-progress" style="width: ${((shotRechargeTime - runner.rechargeTimer) / shotRechargeTime) * 100}%"></div>
+                    </div>
+                `;
+                runnerStatusContainer.appendChild(statusDiv);
+            });
+        }
+
+        // --- Funções de Desenho ---
+
+        // Desenha uma única célula
+        function drawCell(x, y, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE);
+            ctx.strokeStyle = '#2d3748';
+            ctx.strokeRect(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE);
+        }
+
+        // Desenha o tabuleiro inteiro
+        function drawBoard() {
+            for (let y = 0; y < ROWS; y++) {
+                for (let x = 0; x < COLS; x++) {
+                    if (board[y][x]) {
+                        drawCell(x, y, board[y][x]);
+                    } else {
+                        ctx.fillStyle = '#2d3748';
+                        ctx.fillRect(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE);
+                    }
+                }
+            }
+        }
+
+        // Desenha a peça caindo
+        function drawPiece(piece) {
+            if (!piece) return;
+            for (let y = 0; y < piece.shape.length; y++) {
+                for (let x = 0; x < piece.shape[y].length; x++) {
+                    if (piece.shape[y][x]) {
+                        drawCell(piece.x + x, piece.y + y, piece.color);
+                    }
+                }
+            }
+        }
+
+        // A função principal de desenho
+        function draw() {
+            drawBoard();
+            drawPiece(currentPiece);
+        }
+
+        // --- Funções de Fluxo do Jogo ---
+
+        // Lógica de Fim de Jogo
+        function endGame() {
+            gameOver = true;
+            isPaused = true;
+            showGameMessage('Fim de Jogo!');
+            clearInterval(timerInterval);
+            runners.forEach(r => clearInterval(r.rechargeInterval));
+        }
+
+        // Verificação da condição de vitória
+        function checkWinCondition() {
+            if (linesToWin <= 0) {
+                gameOver = true;
+                isPaused = true;
+                showGameMessage('Você Venceu!');
+                clearInterval(timerInterval);
+                runners.forEach(r => clearInterval(r.rechargeInterval));
+            } else {
+                let runnerWon = runners.some(runner => runner.update());
+                if (runnerWon) {
+                    gameOver = true;
+                    isPaused = true;
+                    showGameMessage('Um Runner Venceu!');
+                    clearInterval(timerInterval);
+                    runners.forEach(r => clearInterval(r.rechargeInterval));
+                }
+            }
+        }
+
+        // Mostra uma mensagem na tela do jogo
+        function showGameMessage(message) {
+            gameMessage.textContent = message;
+            gameMessage.style.display = 'block';
+        }
+
+        // Esconde a mensagem do jogo
+        function hideGameMessage() {
+            gameMessage.style.display = 'none';
+        }
+
+        // Pausa o jogo
+        function pauseGame() {
+            if (!gameOver) {
+                isPaused = true;
+                pauseScreen.style.display = 'flex';
+            }
+        }
+
+        // Retoma o jogo
+        function resumeGame() {
+            isPaused = false;
+            pauseScreen.style.display = 'none';
+            if (!gameOver) {
+                gameLoopId = requestAnimationFrame(gameLoop);
+            }
+        }
+
+        // Loop principal do jogo
+        let lastDropTime = 0;
+        function gameLoop(time) {
+            if (isPaused) {
+                return;
+            }
+            if (time - lastDropTime > dropInterval) {
+                drop();
+                lastDropTime = time;
+            }
+
+            draw();
+            checkWinCondition();
+            if (!gameOver) {
+                gameLoopId = requestAnimationFrame(gameLoop);
+            }
+        }
+
+        // --- Listeners de Eventos ---
+
+        // Controles de teclado para o jogador
+        document.addEventListener('keydown', e => {
+            if (isPaused) {
+                if (e.key.toLowerCase() === 'p' || e.key === 'Escape') {
+                    resumeGame();
+                }
+                return;
+            }
+            if (gameOver) return;
+
+            switch (e.key) {
+                case 'ArrowLeft':
+                    if (!collide(currentPiece, -1, 0)) currentPiece.x--;
+                    break;
+                case 'ArrowRight':
+                    if (!collide(currentPiece, 1, 0)) currentPiece.x++;
+                    break;
+                case 'ArrowDown':
+                    drop();
+                    break;
+                case 'ArrowUp':
+                    rotate(currentPiece);
+                    break;
+                case 'p':
+                case 'P':
+                case 'Escape':
+                    pauseGame();
+                    break;
+            }
+            draw();
+        });
+
+        // Inicia um novo jogo
+        startGameButton.addEventListener('click', () => {
+            // Esconde o menu, mostra o jogo
+            menuScreen.style.display = 'none';
+            mainContainer.style.display = 'flex';
+
+            // Pega as configurações do menu
+            const runnerCount = parseInt(runnerCountSelect.value, 10);
+            linesToWin = parseInt(linesInput.value, 10);
+            maxShots = parseInt(maxShotsInput.value, 10);
+            shotRechargeTime = parseInt(rechargeTimeInput.value, 10);
+            const speed = speedSelect.value;
+            totalGameTime = parseInt(timeInput.value, 10) * 60; // Converte minutos para segundos
+            dropInterval = SPEEDS[speed];
+
+            // Reseta o estado do jogo
+            createBoard();
+            score = 0;
+            gameOver = false;
+            isPaused = false;
+            timeLeft = totalGameTime;
+            runners = [];
+            for (let i = 1; i <= runnerCount; i++) {
+                runners.push(new Runner(i, linesToWin));
+            }
+
+            currentPiece = getNewPiece();
+            nextPiece = getNewPiece();
+
+            // Atualiza a UI
+            playerScoreDisplay.textContent = score;
+            linesRemainingDisplay.textContent = linesToWin;
+            updateRunnerStatus();
+            hideGameMessage();
+
+            // Inicia o temporizador
+            timerInterval = setInterval(() => {
+                if (!isPaused && timeLeft > 0) {
+                    timeLeft--;
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    if (timeLeft <= 0) {
+                        endGame();
+                    }
+                }
+            }, 1000);
+
+            // Inicia o loop do jogo
+            gameLoopId = requestAnimationFrame(gameLoop);
+        });
+
+        resumeButton.addEventListener('click', resumeGame);
+        backToMenuButton.addEventListener('click', () => {
+            clearInterval(timerInterval);
+            runners.forEach(r => clearInterval(r.rechargeInterval));
+            mainContainer.style.display = 'none';
+            pauseScreen.style.display = 'none';
+            menuScreen.style.display = 'flex';
+        });
+
+        // Listeners de eventos para os botões de controle na tela (para mobile)
+        leftButton.addEventListener('click', () => {
+            if (!isPaused && !gameOver) {
+                if (!collide(currentPiece, -1, 0)) currentPiece.x--;
+                draw();
+            }
+        });
+
+        rightButton.addEventListener('click', () => {
+            if (!isPaused && !gameOver) {
+                if (!collide(currentPiece, 1, 0)) currentPiece.x++;
+                draw();
+            }
+        });
+
+        rotateButton.addEventListener('click', () => {
+            if (!isPaused && !gameOver) {
+                rotate(currentPiece);
+                draw();
+            }
+        });
+
+        downButton.addEventListener('click', () => {
+            if (!isPaused && !gameOver) {
+                drop();
+                draw();
+            }
+        });
+        
+        // O botão de pausa na tela agora também funciona
+        pauseButton.addEventListener('click', () => {
+            pauseGame();
+        });
+
+        // Desenho inicial para mostrar o tabuleiro vazio
+        draw();
+    });
+    </script>
 </body>
 </html>
