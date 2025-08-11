@@ -14,12 +14,23 @@
 - **Runners:** Avoid being crushed, use jumps and shots to clear your way, and survive until time runs out.
 
 ## Controls
-(Replace with the actual controls of your game)
-- **Move:** Arrow keys / WASD
-- **Jump:** Spacebar
-- **Shoot:** Left mouse button / Assigned key
 
-## Installation & Running
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/tetris-duel.git
+### Player 1 (Block Controller)
+A/D to move.
+W to rotate.
+S for soft drop.
+
+### Player 2 (Runner 1)
+Left/Right arrows to move.
+Up arrow to jump.
+Down arrow to shoot.
+
+### Player 3 (Runner 2)
+F/H to move.
+T to jump.
+G to shoot.
+
+### Player 4 (Runner 3)
+J/L to move.
+I to jump.
+K to shoot.
